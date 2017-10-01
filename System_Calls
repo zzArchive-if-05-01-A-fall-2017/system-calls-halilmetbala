@@ -1,0 +1,55 @@
+fork: pid_t fork(void): fork()  creates  a new process by duplicating the calling process.  The
+       	new process is referred to as the child process.  The  calling  process
+       	is referred to as the parent process.
+	
+	return value: pid_t:	Success, return PID of child in the parent
+					return 0 to child process.
+				Failure, return -1 in the parent, no child process is created.
+
+stat: int stat(const char *pathname, struct stat *buf): This function returns information about a 		file, in the buffer pointed to by buf.
+
+	return value: int: Success, return 0. Error, return -1.
+	argument const char *pathname: path to the file.
+	argument struct stat *buf: where the information about the file is stored.
+
+kill: int kill(pid_t pid, int sig): The  kill()  system  call can be used to send any signal to any process group or process.
+
+	return value: int: Success, return 0. Error, return -1.
+	argument pid_t pid: the process.
+	argument int sig: the signal sent.
+
+mmap: mmap() creates a new mapping in the virtual address space of the calling provess.
+	argument void *addr: the starting address.
+	argument size_t length: length of the mapping.
+	argument int prot: describes the desired memory protection of mapping.
+	argument int flags: determines wheter updates to the mapping are visible to other processes mapping the same region, and whether updates are carried through to the underlying file.
+	argument int fd: the file descriptor.
+	argument off_t offset: starting formation of file.
+
+chmod: The chmod() system call changes the  permissions  of  a file.
+	return value int: Success 0, fail -1
+	argument const char *pathname: path of file
+	argument mode_t mode: new file permissions are specified here.
+
+waitpid: waits for process to change state
+	return value pid_t: success: process ID, error: -1
+	argument pid_t pid: process.
+	argument int *status: status of process.
+	argument in options: determines what process waitpid is waiting for too.
+
+
+
+
+SYSTEM CALL FAILS
+
+
+fork: lack of memory.
+exec: file not found.
+unlink: pathname is a directory, not a file.
+read: file fd is not a valid file desciptor for reading.
+mount: file is still open so cannot read.
+chmod: file doesnt exist.
+kill: PID or process group doesnt exist.
+
+
+traps: traps are used to access to features in coding, which you normally dont have.(pharmacist example)
